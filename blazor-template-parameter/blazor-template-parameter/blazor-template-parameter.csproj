@@ -6,4 +6,8 @@
     <RootNamespace>blazor_template_parameter</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj" />
+  </ItemGroup>
+
 </Project>

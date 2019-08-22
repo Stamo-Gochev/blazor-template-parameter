@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using blazor_template_parameter.Components
+@using Models.Data
 
 <h1>Hello, world!</h1>
 
@@ -15,16 +16,16 @@
 </TableTemplate>
 
 @code {
-    public List<Pet> pets { get; set; } = new List<Pet>()
+    public List<DataItem> pets { get; set; } = new List<DataItem>()
     {
-        new Pet() { PetId = 1, Name = "pet1" },
-        new Pet() { PetId = 2, Name = "pet2" },
+        new DataItem() { PetId = 1, Name = "pet1" },
+        new DataItem() { PetId = 2, Name = "pet24" },
     };
 
-    public class Pet
-    {
-        public int PetId { get; set; }
-        public string Name { get; set; }
+    //public class Pet
+    //{
+    //    public int PetId { get; set; }
+    //    public string Name { get; set; }
 
-    }
+    //}
 }
