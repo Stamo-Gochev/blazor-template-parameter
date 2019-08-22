@@ -1,0 +1,30 @@
+﻿@page "/"
+@using blazor_template_parameter.Components
+
+<h1>Hello, world!</h1>
+
+<TableTemplate Items="@pets">
+    <TableHeader>
+        <th>ID</th>
+        <th>Name</th>
+    </TableHeader>
+    <RowTemplate Context="pet">
+        <td>@pet.PetId</td>
+        <td>@pet.Name</td>
+    </RowTemplate>
+</TableTemplate>
+
+@code {
+    public List<Pet> pets { get; set; } = new List<Pet>()
+    {
+        new Pet() { PetId = 1, Name = "pet1" },
+        new Pet() { PetId = 2, Name = "pet2" },
+    };
+
+    public class Pet
+    {
+        public int PetId { get; set; }
+        public string Name { get; set; }
+
+    }
+}
