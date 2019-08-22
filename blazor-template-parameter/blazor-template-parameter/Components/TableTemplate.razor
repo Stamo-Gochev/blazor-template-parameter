@@ -1,32 +1,39 @@
 ﻿@typeparam TItem
+@using Models.Data
 
-<table class="table">
-    <thead>
-        <tr>@TableHeader</tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Items)
-        {
-            <tr>@RowTemplate(item)</tr>
-        }
-    </tbody>
-    <tfoot>
-        <tr>@TableFooter</tr>
-    </tfoot>
-</table>
+<div>
+    @foreach (var item in Items)
+    {
+        <div>@RowTemplate(item)</div>
+    }
+
+    <h1>other items</h1>
+
+    @foreach (var item in CustomItems)
+    {
+        <div>@CustomTemplate(item)</div>
+    }
+</div>
 
 @code {
     [Parameter]
     public RenderFragment TableHeader { get; set; }
 
     [Parameter]
-    public RenderFragment<TItem>
-    RowTemplate
-    { get; set; }
+    public RenderFragment<TItem> RowTemplate { get; set; }
+
+    [Parameter]
+    public RenderFragment<DataItem> CustomTemplate { get; set; }
 
     [Parameter]
     public RenderFragment TableFooter { get; set; }
 
     [Parameter]
-    public IReadOnlyList<TItem> Items { get; set; }
+    public List<TItem> Items { get; set; }
+
+    public List<DataItem> CustomItems { get; set; } = new List<DataItem>()
+{
+        new DataItem() { Id = 1, Value = "other item 1" },
+        new DataItem() { Id = 2, Value = "other item 2" },
+    };
 }
